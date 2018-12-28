@@ -8,7 +8,7 @@ function clean(text) {
         return text;
 }
 
-const prefix = "$";
+const prefix = "-";
 const token = process.env.token
 
 
@@ -81,8 +81,8 @@ if (message.content.toLowerCase().startsWith(prefix + `close`)) {
 
 });
 
-var adminprefix = '$'
-const developers = ["312244272000663564"]
+var adminprefix = '-'
+const developers = ["411137717884289024"]
 
 
 
