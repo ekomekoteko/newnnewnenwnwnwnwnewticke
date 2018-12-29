@@ -136,7 +136,7 @@ client.on('message', message => {
             };
                 message.guild.createChannel(`ticket-${message.author.username}`, "text").then(ticket => {
                     message.delete()
-                        message.channel.send(`Your ticket has been created. [ ${number} ]`);
+                        message.channel.send(`Your ticket has been created. [ ${ticket} ]`);
                     ticket.setParent(ticketsStation);
                     ticketsStation.setPosition(1);
                         ticket.overwritePermissions(message.guild.id, {
