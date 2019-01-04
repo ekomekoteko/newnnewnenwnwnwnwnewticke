@@ -1,5 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
+var anti_spam1 = require("discord-anti-spam");
+
 
 function clean(text) {
     if (typeof(text) === "string")
@@ -198,6 +200,16 @@ client.on('message', message => {
     }
 });
 
+
+anti_spam1(bot1, {
+  warnBuffer: 7, 
+  maxBuffer: 8,  
+  interval: 1000, 
+  warningMessage: "**سيتم طردك إن لم توقف سبام**",  
+  banMessage: "تم الطرد بسبب السبام", 
+  maxDuplicatesWarning: 7,  
+  maxDuplicatesBan: 10 
+});
 
 
 client.login(token);
