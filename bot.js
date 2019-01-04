@@ -201,15 +201,7 @@ client.on('message', message => {
 });
 
 
-anti_spam(bot, {
-  warnBuffer: 7, 
-  maxBuffer: 8,  
-  interval: 1000, 
-  warningMessage: "**سيتم طردك إن لم توقف سبام**",  
-  banMessage: "تم الطرد بسبب السبام", 
-  maxDuplicatesWarning: 7,  
-  maxDuplicatesBan: 10 
-});
+
 
 
 client.login(token);
