@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-var anti_spam1 = require("discord-anti-spam");
+var anti_spam = require("discord-anti-spam");
 
 
 function clean(text) {
@@ -201,7 +201,7 @@ client.on('message', message => {
 });
 
 
-anti_spam1(bot1, {
+anti_spam(bot, {
   warnBuffer: 7, 
   maxBuffer: 8,  
   interval: 1000, 
