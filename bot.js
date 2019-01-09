@@ -614,5 +614,16 @@ if (message.content.startsWith(prefix + 'translate')) {
   }
 }
 });
+client.on('ready', function(){
+  console.log('Dragon is Online');
+  require("./antispam.js")(client, function(message){
+     message.delete().then(loloz => {
+     message.channel.send("").then(spammer => {
+     spammer.delete(2000)
+   });
+   });
+  });
+});
+
 
 client.login(token);
