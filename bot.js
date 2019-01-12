@@ -1,6 +1,20 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-var anti_spam = require("discord-anti-spam");
+const moment = require('moment');
+const ytdl = require('ytdl-core');
+const request = require('request');
+var Canvas = require('canvas')
+const prettyMs = require('pretty-ms');
+const fkkRecently = new Set();
+const getYoutubeID = require('get-youtube-id');
+const fetchVideoInfo = require('youtube-info');
+const fs = require('fs');
+const ms = require("ms");
+const dateFormat = require('dateformat');
+const config = require("./config.json")
+
+var user = {};
+var warn = {};
 
 
 function clean(text) {
