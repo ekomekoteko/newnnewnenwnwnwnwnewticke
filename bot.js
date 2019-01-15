@@ -702,7 +702,7 @@ client.on('voiceStateUpdate', (old, now) => {
   if (currentSize !== size) channel.setName(`Voice Connects - ${currentSize}`);
 });
 
-
+  var prefix = "-";
 let vipid = '411137717884289024' 
 const vipfile = JSON.parse(fs.readFileSync('./vip.json' , 'utf8'));
 client.on('message', message => {
