@@ -640,83 +640,24 @@ client.on('ready', function(){
 });
 
 
-client.on('message',message =>{
-  var prefix = "-";
-  if(message.content.startsWith(prefix + 'top')) {
-message.guild.fetchInvites().then(i =>{
-var invites = [];
- 
-i.forEach(inv =>{
-  var [invs,i]=[{},null];
-   
-  if(inv.maxUses){
-      invs[inv.code] =+ inv.uses+"/"+inv.maxUses;
-  }else{
-      invs[inv.code] =+ inv.uses;
-  }
-      invites.push(`invite: ${inv.url} inviter: ${inv.inviter} \`${invs[inv.code]}\`;`);
- 
+client.on('message', msg => {
+if (msg.content.toLowerCase() === prefix + "si") {
+  msg.react('🚬');
+  msg.react('☁');
+msg.channel.send('🚬☁☁☁')
+.then(nmsg => nmsg.edit('🚬☁☁☁☁'))
+.then(nmsg => nmsg.edit('🚬☁☁☁☁'))
+.then(nmsg => nmsg.edit('🚬☁☁☁'))
+.then(nmsg => nmsg.edit('🚬☁☁☁'))
+.then(nmsg => nmsg.edit('🚬☁☁'))
+.then(nmsg => nmsg.edit('🚬☁☁'))
+.then(nmsg => nmsg.edit('🚬☁'))
+.then(nmsg => nmsg.edit('🚬☁'))
+.then(nmsg => nmsg.edit('**Sigaran bitti :(** | **Sigara İçmeyiniz.** :no_smoking: **Sigara Sağlığa Zararlıdır!**'));
+   msg.react('🚬')
+  msg.react('☁')
+}
 });
-var embed = new Discord.RichEmbed()
-.setColor("#000000")
-.setDescription(`${invites.join(`\n`)+'\n\n**By:** '+message.author}`)
-.setThumbnail("https://i.imgur.com/GnR2unD.png")
-         message.channel.send({ embed: embed });
- 
-});
- 
-  }
-});
-
-client.on("message", message => {
-    var prefix = "!";
-            var args = message.content.substring(prefix.length).split(" ");
-            if (message.content.startsWith(prefix +"clear")) {
-                if (!message.member.hasPermission("MANAGE_CHANNELS"))  return message.reply("**للأسف ليس لديك صلاحية `MANAGE_CHANNELS` Permission**");
-if(!message.guild.member(client.user).hasPermission("MANAGE_CHANNELS")) return message.reply("**للأسف البوت يحتاج صلاحية`MANAGE_CHANNELS`**");
- if (!args[1]) {
-                                let embed3 = new Discord.RichEmbed()
-                                .setDescription("clear <number>")
-                                .setColor("RANDOM")
-                                message.channel.sendEmbed(embed3);
-                            } else {
-                            let messagecount = parseInt(args[1]);
-                            message.channel.fetchMessages({limit: messagecount}).then(messages => message.channel.bulkDelete(messages));
-                                                          message.channel.fetchMessages({limit: messagecount}).then(messages => message.channel.bulkDelete(messages));
-                            message.channel.fetchMessages({limit: messagecount}).then(messages => message.channel.bulkDelete(messages));
-                            let embed4 = new Discord.RichEmbed()
-                                                            .setColor("#008000")
-                                .setDescription(":white_check_mark: | Delete " + args[1] + " Message!")
-                                                                                        message.delete("2000");
-                                message.channel.sendEmbed(embed4) .then(msg => msg.delete(2000));
-                            }
-                          }
-});
-
-
-client.on('voiceStateUpdate', (old, now) => {
-  const channel = client.channels.get(config.CHANNEL_ID);
-  const currentSize = channel.guild.members.filter(m => m.voiceChannel).size;
-  const size = channel.name.match(/\[\s(\d+)\s\]/);
-  if (!size) return channel.setName(`Voice Connects - ${currentSize}`);
-  if (currentSize !== size) channel.setName(`Voice Connects - ${currentSize}`);
-});
-
-  var prefix = "-";
-let vipid = '411137717884289024' 
-const vipfile = JSON.parse(fs.readFileSync('./vip.json' , 'utf8'));
-client.on('message', message => {
-if(!message.author.id === vipid) return message.channel.send('This Command For The Person Purchased The Premium ❌')
-if(message.content.startsWith(prefix + 'vipmove')) {
-vipfile[message.guild.id] = {
-guild: message.guild.id, 
-}}
-})
-
-client.on('guildCreate', msg => {
-    if(!vipfile[msg.id]) return;
-if(!msg.id === vipfile[msg.id].guild) return client.guild.leave()
-})
 
 
 
